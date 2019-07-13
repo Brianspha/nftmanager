@@ -9,7 +9,16 @@
   },
   "dependencies": {
     "core-js": "^2.6.5",
-    "vue": "^2.6.10"
+    "embarkjs-connector-web3": "4.0.0",
+    "secure-ls": "^1.2.5",
+    "sweetalert2": "^8.12.1",
+    "vue": "^2.6.10",
+    "vue-async-data": "^1.0.2",
+    "vue-infinite-loading": "^2.4.4",
+    "vue-loading-overlay": "^3.2.0",
+    "vue-router": "^3.0.6",
+    "vue-snotify": "^3.2.1",
+    "vuetify": "^1.5.14"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.9.0",
