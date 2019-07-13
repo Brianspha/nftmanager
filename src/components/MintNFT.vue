@@ -93,9 +93,8 @@
       },
       mintToken() {
         this.isLoading = true
-        this.CryptoWorldWarContract.methods.mintNewCollectible(this.value, this.web3.Utils.fromAscii(this.description),
-          this.web3
-          .Utils.fromAscii(this.name), this.web3.Utils.fromAscii(new Date().toDateString()), this.level).send({
+        this.CryptoWorldWarContract.methods.mintNewCollectible(this.value, this.description,
+          this.name, new Date().toDateString(), this.level).send({
           gas: 8000000,
           from: this.senderAddress
         }).then((receipt, error) => {

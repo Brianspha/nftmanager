@@ -42,7 +42,8 @@
                                             <v-divider></v-divider>
                                             <v-btn icon x-smal ripple>
                                                 <v-icon color="grey lighten-1"
-                                                    @click="selectedNFTDescription=item.description; selectedNFTtransactionHash=item.transactionHash;dialog=true">info
+                                                    @click="selectedNFTDescription=item.description; selectedNFTtransactionHash=item.transactionHash;dialog=true">
+                                                    info
                                                 </v-icon>
                                             </v-btn>
                                             <v-spacer></v-spacer>
@@ -104,7 +105,7 @@
                 CryptoWorldWarContract: null,
                 CollectiblesNFTS: [],
                 fullPage: true,
-                selectedNFTtransactionHash:null
+                selectedNFTtransactionHash: null
             }
         },
         mounted() {
@@ -136,17 +137,11 @@
                             }).then((collectibleDetails, error) => {
                                 console.log("error: ", error)
                                 console.log("collectibleDetails: ", collectibleDetails)
-                                console.log("dateCreated: ", this.web3.Utils.toAscii(
-                                    collectibleDetails.date))
-                                console.log("name: ", this.web3.Utils.toAscii(collectibleDetails
-                                    .name))
-                                console.log("value: ", collectibleDetails
-                                        .value),
-                                    console.log("transactionHash: ",
-                                        collectibleDetails.thash)
-                                console.log("Description: ", this.web3.Utils.toAscii(
-                                    collectibleDetails.description))
-
+                                console.log("dateCreated: ", collectibleDetails.date)
+                                console.log("name: ", collectibleDetails.name)
+                                console.log("value: ", collectibleDetails.value),
+                                    console.log("transactionHash: ", collectibleDetails.thash)
+                                console.log("Description: ", collectibleDetails.description)
                                 if (error) {
                                     this.error("Something went wrong!!!")
                                     //$state.complete();
@@ -154,16 +149,11 @@
                                     //$state.loaded();
                                     this.CollectiblesNFTS.push({
                                         index: collectibleId,
-                                        name: this.web3.Utils.toAscii(collectibleDetails
-                                            .name),
-                                        dateCreated: this.web3.Utils.toAscii(
-                                            collectibleDetails
-                                            .date),
+                                        name: collectibleDetails.name,
+                                        dateCreated: collectibleDetails.date,
                                         value: collectibleDetails.value,
                                         transactionHash: collectibleDetails.thash,
-                                        description: this.web3.Utils.toAscii(
-                                            collectibleDetails.description,
-                                        ),
+                                        description: collectibleDetails.description,
                                         indexMain: collectibleDetails.indexMain
                                     })
                                 }

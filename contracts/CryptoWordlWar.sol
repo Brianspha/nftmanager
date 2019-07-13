@@ -16,11 +16,11 @@ contract CryptoWorldWar is ERC721Full {
         address owner;
         uint256 index;
         uint256 value;
-        bytes32 description;
+        string description;
         bool active;
-        bytes32 name;
-        bytes32 dateCreated;
-        bytes32 transactionHash;
+        string name;
+        string dateCreated;
+        string transactionHash;
         uint256 level;
         uint256 currentIndexMain;
     }
@@ -76,7 +76,7 @@ contract CryptoWorldWar is ERC721Full {
     }
     /*==============Collectible Definition Section==============*/
 
-    function mintNewCollectible(uint256 value, bytes32 description, bytes32 name, bytes32 date, uint256 level) public
+    function mintNewCollectible(uint256 value, string memory description, string memory name, string memory date, uint256 level) public
     returns(bool) {
         require(msg.sender != address(0), "Invalid sender address");
         require(Players[msg.sender].active, "Player not registered");
@@ -84,14 +84,14 @@ contract CryptoWorldWar is ERC721Full {
         _mint(msg.sender, currentIndex);
         CollectibleKeys.push(currentIndex);
         Collectibles[currentIndex] = Collectible(msg.sender, currentIndex, value,
-            description, true, name, date, bytes32(""), level, CollectibleKeys.length - 1);
+            description, true, name, date, "", level, CollectibleKeys.length - 1);
         Players[msg.sender].ownedCollectibles[currentIndex] = Collectibles[currentIndex];
         emit emitId(currentIndex);
         currentIndex++;
         return true;
     }
 
-    function updateCollectibleHash(bytes32 Thash, uint256 collectibleId) public returns(bool) {
+    function updateCollectibleHash(string memory Thash, uint256 collectibleId) public returns(bool) {
         require(msg.sender != address(0), "Invalid sender address");
         require(_exists(collectibleId), "Collectible does not exist");
         Players[msg.sender].ownedCollectibles[collectibleId].transactionHash = Thash;
@@ -119,8 +119,8 @@ contract CryptoWorldWar is ERC721Full {
         return true;
     }
 
-    function getCollectibelDetails(uint256 collectibleId) public view returns(uint256 value, bytes32 description,
-        bytes32 name, address tokenowner, uint256 level, bytes32 date, bytes32 thash, uint256 indexMain) {
+    function getCollectibelDetails(uint256 collectibleId) public view returns(uint256 value, string memory description,
+        string memory name, address tokenowner, uint256 level, string memory date, string memory thash, uint256 indexMain) {
         require(msg.sender != address(0), "Invalid sender address");
         require(Players[msg.sender].active, "Player not registered");
         require(_exists(collectibleId), "Collectible doesnt exist");
@@ -130,8 +130,9 @@ contract CryptoWorldWar is ERC721Full {
         tokenowner = Collectibles[collectibleId].owner;
         level = Collectibles[collectibleId].level;
         date = Collectibles[collectibleId].dateCreated;
-        thash = Collectibles[collectibleId].transactionHash;
         indexMain = Collectibles[collectibleId].currentIndexMain;
+        thash = Collectibles[collectibleId].transactionHash;
+
     }
 
     /*==============Admin Definition Section==============*/
@@ -148,7 +149,7 @@ contract CryptoWorldWar is ERC721Full {
 
     function getAllCollectibleKeys() onlyAdmin public view returns(uint256[] memory keys) {
         require(msg.sender != address(0), "Invalid sender address");
-       return CollectibleKeys;
+        return CollectibleKeys;
     }
 
     function updateMaxCollectibleLevel(uint256 newlevel) onlyAdmin public returns(bool) {
