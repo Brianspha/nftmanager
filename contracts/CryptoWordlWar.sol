@@ -113,6 +113,7 @@ contract CryptoWorldWar is ERC721Full {
         require(ownerOf(collectibleId) == msg.sender, "You cannot transfer a collectible item you dont own");
         require(msg.sender != to, "You cannot transfer a collectible item you currently own to yourself");
         transferFrom(msg.sender, to, collectibleId);
+        Players[msg.sender].ownedCollectibles[collectibleId].owner=to;
         Players[to].ownedCollectibles[collectibleId] = Players[msg.sender].ownedCollectibles[collectibleId];
         Players[to].OwnedCollectiblesKeys.push(collectibleId);
         delete Players[msg.sender].ownedCollectibles[collectibleId];
@@ -142,8 +143,6 @@ contract CryptoWorldWar is ERC721Full {
         _burn(Collectibles[collectibleId].owner, collectibleId);
         delete Players[Collectibles[collectibleId].owner].ownedCollectibles[collectibleId];
         delete Collectibles[collectibleId];
-        delete CollectibleKeys[Collectibles[collectibleId].currentIndexMain];
-        CollectibleKeys.length--;
         return true;
     }
 

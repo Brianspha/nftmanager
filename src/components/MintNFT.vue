@@ -111,7 +111,6 @@
                 .returnValues.tokenID)
               .send({
                 gas: 8000000,
-                from: this.senderAddress
               }).then((receipt, error) => {
                 console.log("error: ", error)
                 console.log("receipt: ", receipt)
@@ -160,7 +159,6 @@
         this.isLoading = true
         this.CryptoWorldWarContract.methods.registerPlayer().send({
           gas: 8000000,
-          from: this.senderAddress
         }).then((receipt, error) => {
           console.log("error: ", error)
           console.log("receipt: ", receipt)

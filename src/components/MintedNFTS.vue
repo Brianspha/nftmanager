@@ -9,7 +9,8 @@
                         </v-card-title>
                         <v-card-text>{{selectedNFTDescription}} <br>
 
-                            TranasctionHash: {{selectedNFTtransactionHash}}
+                            TranasctionHash: {{selectedNFTtransactionHash}} <br>
+                            Token Owner :{{selectedNFTTokenOwner}}
                         </v-card-text>
                         <v-card-actions>
                             <v-spacer></v-spacer>
@@ -42,7 +43,7 @@
                                             <v-divider></v-divider>
                                             <v-btn icon x-smal ripple>
                                                 <v-icon color="grey lighten-1"
-                                                    @click="selectedNFTDescription=item.description; selectedNFTtransactionHash=item.transactionHash;dialog=true">
+                                                    @click="selectedNFTDescription=item.description; selectedNFTTokenOwner=item.owner;selectedNFTtransactionHash=item.transactionHash;dialog=true">
                                                     info
                                                 </v-icon>
                                             </v-btn>
@@ -105,7 +106,8 @@
                 CryptoWorldWarContract: null,
                 CollectiblesNFTS: [],
                 fullPage: true,
-                selectedNFTtransactionHash: null
+                selectedNFTtransactionHash: null,
+                selectedNFTTokenOwner:null
             }
         },
         mounted() {
@@ -154,7 +156,8 @@
                                         value: collectibleDetails.value,
                                         transactionHash: collectibleDetails.thash,
                                         description: collectibleDetails.description,
-                                        indexMain: collectibleDetails.indexMain
+                                        indexMain: collectibleDetails.indexMain,
+                                        owner:collectibleDetails.tokenowner
                                     })
                                 }
                             }).catch((err) => {
@@ -201,7 +204,7 @@
                             }
                             this.isLoading = false
                         }).catch((err) => {
-                            error("Something went Wrong\n\n" + err)
+                            this.error("Something went Wrong\n\n" + err)
                             this.isLoading = false
                         })
 
