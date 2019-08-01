@@ -102,6 +102,12 @@
           text: 'View Minted NFTS ',
           to: "/MintedNFTS",
           render: true
+        },
+        {
+          icon: 'opacity',
+          text: 'Mint ERC20  ',
+          to: "/MintERC20",
+          render: true
         }
       ]
     }),

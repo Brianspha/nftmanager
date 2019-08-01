@@ -5,12 +5,12 @@
                 <v-dialog v-model="dialog" width="100%" align-start justify-center row fill-height>
                     <v-card>
                         <v-card-title>
-                            <span class="headline">Collectible Description</span>
+                            <span class="headline">Token Description</span>
                         </v-card-title>
-                        <v-card-text>{{selectedNFTDescription}} <br>
+                        <v-card-text>Token Name: {{selectedNFTDescription}} <br>
 
                             TranasctionHash: {{selectedNFTtransactionHash}} <br>
-                            Token Owner :{{selectedNFTTokenOwner}}
+                            Token Owner : {{selectedNFTTokenOwner}}
                         </v-card-text>
                         <v-card-actions>
                             <v-spacer></v-spacer>
@@ -33,8 +33,7 @@
                                     <v-list-tile-content>
                                         <v-list-tile-title>{{ item.dateCreated }}</v-list-tile-title>
                                         <v-list-tile-sub-title class="text--primary">{{ item.headline }}
-                                        </v-list-tile-sub-title>Name
-                                        <v-list-tile-sub-title>{{ item.name }}</v-list-tile-sub-title>
+                                        </v-list-tile-sub-title>Token Name: {{ item.name }}
                                     </v-list-tile-content>
                                     <v-list-tile-action>
                                         <v-list-tile-action-text class="font-weight-black"> {{ item.value }} Eth
@@ -107,7 +106,7 @@
                 CollectiblesNFTS: [],
                 fullPage: true,
                 selectedNFTtransactionHash: null,
-                selectedNFTTokenOwner:null
+                selectedNFTTokenOwner: null
             }
         },
         mounted() {
@@ -157,7 +156,7 @@
                                         transactionHash: collectibleDetails.thash,
                                         description: collectibleDetails.description,
                                         indexMain: collectibleDetails.indexMain,
-                                        owner:collectibleDetails.tokenowner
+                                        owner: collectibleDetails.tokenowner
                                     })
                                 }
                             }).catch((err) => {

@@ -111,6 +111,14 @@ module.exports = {
           "CryptoWorldWar",
           "CWW"
         ]
+      },
+      ERC20Detailed: {
+        args: [
+          "HangToken",
+          "HTK",
+          18,
+          1000000000
+        ]
       }
     }
   } // you can name an environment with specific settings and then specify with

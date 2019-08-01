@@ -642,8 +642,7 @@
       ],
       "payable": false,
       "stateMutability": "nonpayable",
-      "type": "constructor",
-      "signature": "constructor"
+      "type": "constructor"
     },
     {
       "anonymous": false,
@@ -732,7 +731,6 @@
   "originalFilename": "contracts\\CryptoWordlWar.sol",
   "path": "C:\\Users\\g14m1190\\Documents\\GitHub\\nftmanager\\contracts\\CryptoWordlWar.sol",
   "gas": "8000000",
-  "gasPrice": "500000000000",
   "type": "file",
   "deploy": true,
   "_gasLimit": 6000000,
@@ -742,6 +740,6 @@
     "CryptoWorldWar",
     "CWW"
   ],
-  "deployedAddress": "0x9435d8ABfd18c95bF4914828d5843c8e46e83cf0",
-  "transactionHash": "0xf691aa7e105448fc42531a64da6602c803129b8ae8c37560c5940270e4e2734c"
+  "address": "0x9435d8ABfd18c95bF4914828d5843c8e46e83cf0",
+  "deployedAddress": "0x9435d8ABfd18c95bF4914828d5843c8e46e83cf0"
 }
