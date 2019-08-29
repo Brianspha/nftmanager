@@ -1,0 +1,9 @@
+{
+  "manifestVersion": "2.2",
+  "contracts": {},
+  "dependencies": {
+    "@openzeppelin/contracts-ethereum-package": "^2.2.3"
+  },
+  "name": "nftmanager",
+  "version": "0.1.0"
+}

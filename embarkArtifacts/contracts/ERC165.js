@@ -1,4 +1,12 @@
-import EmbarkJS from '../embarkjs';
-let ERC165JSONConfig = {"contract_name":{"className":"ERC165","args":[],"code":"","runtimeBytecode":"","realRuntimeBytecode":"","linkReferences":{},"swarmHash":"","gasEstimates":null,"functionHashes":{"supportsInterface(bytes4)":"01ffc9a7"},"abiDefinition":[{"constant":true,"inputs":[{"name":"interfaceId","type":"bytes4"}],"name":"supportsInterface","outputs":[{"name":"","type":"bool"}],"payable":false,"stateMutability":"view","type":"function"},{"inputs":[],"payable":false,"stateMutability":"nonpayable","type":"constructor"}],"filename":"C:\\Users\\g14m1190\\Documents\\GitHub\\nftmanager\\.embark\\contracts\\ERC165.sol","originalFilename":"contracts\\ERC165.sol","path":"C:\\Users\\g14m1190\\Documents\\GitHub\\nftmanager\\contracts\\ERC165.sol","gas":"8000000","type":"file","deploy":false,"_gasLimit":6000000,"error":false},"code":"","runtime_bytecode":"","real_runtime_bytecode":"","swarm_hash":"","gas_estimates":null,"function_hashes":{"supportsInterface(bytes4)":"01ffc9a7"},"abi":[{"constant":true,"inputs":[{"name":"interfaceId","type":"bytes4"}],"name":"supportsInterface","outputs":[{"name":"","type":"bool"}],"payable":false,"stateMutability":"view","type":"function"},{"inputs":[],"payable":false,"stateMutability":"nonpayable","type":"constructor"}]};
+"use strict";
+const isNode = (typeof process !== 'undefined' && process.versions && process.versions.node);
+const lib = isNode ? '../embarkjs.node' : '../embarkjs';
+const EmbarkJSNode = isNode && require('../embarkjs.node');
+let EmbarkJSBrowser;
+try {
+EmbarkJSBrowser = require('../embarkjs').default;
+} catch(e) {};
+const EmbarkJS = isNode ? EmbarkJSNode : EmbarkJSBrowser;
+let ERC165JSONConfig = {"contract_name":"ERC165","code":"","runtime_bytecode":"","real_runtime_bytecode":"","swarm_hash":"","gas_estimates":null,"function_hashes":{"supportsInterface(bytes4)":"01ffc9a7"},"abi":[{"constant":true,"inputs":[{"name":"interfaceId","type":"bytes4"}],"name":"supportsInterface","outputs":[{"name":"","type":"bool"}],"payable":false,"stateMutability":"view","type":"function","signature":"0x01ffc9a7"},{"inputs":[],"payable":false,"stateMutability":"nonpayable","type":"constructor"}]};
 let ERC165 = new EmbarkJS.Blockchain.Contract(ERC165JSONConfig);
-export default ERC165;
+module.exports = ERC165;

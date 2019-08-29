@@ -1,5 +1,6 @@
-pragma solidity >= 0.5 .0;
+pragma solidity >=0.5.0;
 
+//@dev contract is not optimised for gas
 import "./ERC721Full.sol";
 contract CryptoWorldWar is ERC721Full {
 
