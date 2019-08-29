@@ -13,7 +13,7 @@ import "./ERC165.sol";
  */
 contract ERC721 is ERC165, IERC721 {
     using SafeMath for uint256;
-    using Address for address;
+    using OpenZeppelinUpgradesAddress for address;
     using Counters for Counters.Counter;
 
     // Equals to `bytes4(keccak256("onERC721Received(address,address,uint256,bytes)"))`

@@ -1,10 +1,9 @@
 pragma solidity >= 0.5 .0;
 import "./SafeMath.sol";
 import "./IERC20.sol";
-import "@openzeppelin/upgrades/contracts/Initializable.sol";
 
 /*=============== DodgeEM contract Token ===============*/
-contract DodgeEMToken is IERC20, Initializable {
+contract DodgeEMToken is IERC20 {
     using SafeMath
     for uint256;
     /*=============== Contract Variable Code Section Start===============*/
@@ -15,7 +14,6 @@ contract DodgeEMToken is IERC20, Initializable {
     uint256 private _decimals;
     uint256 private _totalSupply;
     address _owner;
-    bool alreadySet;
 
     /*=============== Modifier Code Section Start===============*/
     modifier onlyOwner() {
@@ -23,26 +21,22 @@ contract DodgeEMToken is IERC20, Initializable {
         _;
     }
 
-    constructor() public {
-        require(msg.sender != address(0), "Invalid creator address");
-        _owner=msg.sender;
-    }
     /**
      * @dev Sets the values for `name`, `symbol`, and `decimals`. All three of
      * these values are immutable: they can only be set once during
      * construction.
      */
-    function initialise(string memory name, string memory symbol, uint256 decimals, uint256 totalSupply) onlyOwner public {
+    constructor(string memory name, string memory symbol, uint256 decimals, uint256 totalSupply) public {
         require(address(0) != msg.sender, "Invalid sender address");
         require(totalSupply > 0, "Invalid initial suppy of Tokens");
-        require(!alreadySet, "Cannot reset token details");
         _name = name;
         _symbol = symbol;
         _decimals = decimals;
         totalSupply = totalSupply.add(totalSupply * (10) ** decimals);
         _totalSupply = totalSupply;
-        _mint(msg.sender, _totalSupply);
-        alreadySet=true;
+        _owner = msg.sender;
+        _mint(_owner, _totalSupply);
+
     }
 
 

@@ -1,0 +1,43 @@
+{
+  "className": "IERC165",
+  "args": [],
+  "code": "",
+  "runtimeBytecode": "",
+  "realRuntimeBytecode": "",
+  "linkReferences": {},
+  "swarmHash": "",
+  "gasEstimates": null,
+  "functionHashes": {
+    "supportsInterface(bytes4)": "01ffc9a7"
+  },
+  "abiDefinition": [
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "interfaceId",
+          "type": "bytes4"
+        }
+      ],
+      "name": "supportsInterface",
+      "outputs": [
+        {
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function",
+      "signature": "0x01ffc9a7"
+    }
+  ],
+  "filename": "C:/Users/g14m1190/Documents/GitHub/nftmanager/.embark/contracts/IERC165.sol",
+  "originalFilename": "contracts\\IERC165.sol",
+  "path": "C:\\Users\\g14m1190\\Documents\\GitHub\\nftmanager\\contracts\\IERC165.sol",
+  "gas": "auto",
+  "type": "file",
+  "deploy": false,
+  "_gasLimit": 6000000,
+  "error": false
+}

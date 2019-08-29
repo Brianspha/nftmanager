@@ -1,35 +1,33 @@
-pragma solidity ^0.5.0;
+pragma solidity >= 0.5 .0;
 
 /**
- * @dev Collection of functions related to the address type,
+ * Utility library of inline functions on addresses
+ *
+ * Source https://raw.githubusercontent.com/OpenZeppelin/openzeppelin-solidity/v2.1.3/contracts/utils/Address.sol
+ * This contract is copied here and renamed from the original to avoid clashes in the compiled artifacts
+ * when the user imports a zos-lib contract (that transitively causes this contract to be compiled and added to the
+ * build/artifacts folder) as well as the vanilla Address implementation from an openzeppelin version.
  */
-library Address {
+library OpenZeppelinUpgradesAddress {
     /**
-     * @dev Returns true if `account` is a contract.
-     *
-     * This test is non-exhaustive, and there may be false-negatives: during the
-     * execution of a contract's constructor, its address will be reported as
-     * not containing a contract.
-     *
-     * > It is unsafe to assume that an address for which this function returns
-     * false is an externally-owned account (EOA) and not a contract.
+     * Returns whether the target address is a contract
+     * @dev This function will return false if invoked during the constructor of a contract,
+     * as the code is not actually created until after the constructor finishes.
+     * @param account address of the account to check
+     * @return whether the target address is a contract
      */
-    function isContract(address account) internal view returns (bool) {
-        // This method relies in extcodesize, which returns 0 for contracts in
-        // construction, since the code is only stored at the end of the
-        // constructor execution.
-
+    function isContract(address account) internal view returns(bool) {
         uint256 size;
+        // XXX Currently there is no better way to check if there is a contract in an address
+        // than to check the size of the code at that address.
+        // See https://ethereum.stackexchange.com/a/14016/36603
+        // for more details about how this works.
+        // TODO Check this again before the Serenity release, because all addresses will be
+        // contracts then.
         // solhint-disable-next-line no-inline-assembly
-        assembly { size := extcodesize(account) }
+        assembly {
+            size: = extcodesize(account)
+        }
         return size > 0;
-    }
-
-    /**
-     * @dev Converts an `address` into `address payable`. Note that this is
-     * simply a type cast: the actual underlying value is not changed.
-     */
-    function toPayable(address account) internal pure returns (address payable) {
-        return address(uint160(account));
     }
 }

@@ -1,0 +1,26 @@
+{
+  "className": "Proxy",
+  "args": [],
+  "code": "",
+  "runtimeBytecode": "",
+  "realRuntimeBytecode": "",
+  "linkReferences": {},
+  "swarmHash": "",
+  "gasEstimates": null,
+  "functionHashes": {},
+  "abiDefinition": [
+    {
+      "payable": true,
+      "stateMutability": "payable",
+      "type": "fallback"
+    }
+  ],
+  "filename": "C:/Users/g14m1190/Documents/GitHub/nftmanager/.embark/contracts/Proxy.sol",
+  "originalFilename": "contracts\\Proxy.sol",
+  "path": "C:\\Users\\g14m1190\\Documents\\GitHub\\nftmanager\\contracts\\Proxy.sol",
+  "gas": "auto",
+  "type": "file",
+  "deploy": false,
+  "_gasLimit": 6000000,
+  "error": false
+}

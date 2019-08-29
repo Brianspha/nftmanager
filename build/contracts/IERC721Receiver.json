@@ -1,0 +1,55 @@
+{
+  "className": "IERC721Receiver",
+  "args": [],
+  "code": "",
+  "runtimeBytecode": "",
+  "realRuntimeBytecode": "",
+  "linkReferences": {},
+  "swarmHash": "",
+  "gasEstimates": null,
+  "functionHashes": {
+    "onERC721Received(address,address,uint256,bytes)": "150b7a02"
+  },
+  "abiDefinition": [
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "operator",
+          "type": "address"
+        },
+        {
+          "name": "from",
+          "type": "address"
+        },
+        {
+          "name": "tokenId",
+          "type": "uint256"
+        },
+        {
+          "name": "data",
+          "type": "bytes"
+        }
+      ],
+      "name": "onERC721Received",
+      "outputs": [
+        {
+          "name": "",
+          "type": "bytes4"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function",
+      "signature": "0x150b7a02"
+    }
+  ],
+  "filename": "C:/Users/g14m1190/Documents/GitHub/nftmanager/.embark/contracts/IERC721Receiver.sol",
+  "originalFilename": "contracts\\IERC721Receiver.sol",
+  "path": "C:\\Users\\g14m1190\\Documents\\GitHub\\nftmanager\\contracts\\IERC721Receiver.sol",
+  "gas": "auto",
+  "type": "file",
+  "deploy": false,
+  "_gasLimit": 6000000,
+  "error": false
+}
